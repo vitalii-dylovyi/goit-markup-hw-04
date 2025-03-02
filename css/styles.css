@@ -88,6 +88,10 @@ h3 {
 
 .header {
   border-bottom: 1px solid var(--accent-color);
+  box-shadow:
+    0px 2px 1px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 1px 6px rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
@@ -146,7 +150,7 @@ h3 {
   line-height: 1.5;
   position: relative;
   color: var(--dark-color);
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover,
@@ -159,7 +163,7 @@ h3 {
 }
 
 .nav-link.active::after {
-  content: " ";
+  content: "";
   width: 100%;
   height: 4px;
   display: block;
@@ -185,8 +189,10 @@ h3 {
 
 .hero-section {
   padding: 188px 0;
-  background-repeat: no-repeat;
+  max-width: 1440px;
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   background-image:
     linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
     url("./images/hero-image.jpeg");
@@ -243,11 +249,11 @@ h3 {
 
 .advantages-icon-block {
   width: 100%;
-  display: flex;
+  height: 112px;
   padding: 24px 0;
+  text-align: center;
   border-radius: 4px;
   margin-bottom: 8px;
-  justify-content: center;
   border: 1px solid var(--subtle-text);
   background-color: var(--light-color);
 }
@@ -307,18 +313,27 @@ h3 {
 
 .member-socials {
   display: flex;
+  justify-content: center;
 }
 
-.member-socials-item {
-  display: flex;
+.member-socials-link {
+  width: 100%;
+  height: 100%;
   padding: 12px;
-  border-radius: 100%;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
   background-color: var(--primary-color);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.team-member:hover .member-socials-item {
+.member-socials-link:hover,
+.member-socials-link:focus {
   background-color: var(--pressed-state);
+}
+
+.member-socials-icon {
+  fill: var(--light-color);
 }
 
 .portfolio-section {
@@ -339,11 +354,15 @@ h3 {
   flex-wrap: wrap;
 }
 
-.portfolio-item:hover .portfolio-item-info {
+.portfolio-item {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover {
   box-shadow:
-    0px 1px 6px 0px rgba(46, 47, 66, 0.08),
-    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
-    0px 2px 1px 0px rgba(46, 47, 66, 0.08);
+    0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .portfolio-item:hover .portfolio-item-overlay {
@@ -356,8 +375,12 @@ h3 {
 }
 
 .portfolio-item-overlay {
-  bottom: 0;
+  top: 0;
+  width: 100%;
   height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
   padding: 40px 32px;
   position: absolute;
   color: var(--light-color);
@@ -370,7 +393,6 @@ h3 {
   padding: 32px 16px;
   border-top: none;
   border: 1px solid var(--accent-color);
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-item-name {
@@ -383,33 +405,44 @@ h3 {
 }
 
 .footer-container {
-  gap: 120px;
   display: flex;
+  align-items: baseline;
 }
 
-.footer-socials p {
+.footer-site-info {
+  margin-right: 120px;
+}
+
+.footer-socials-text {
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 500;
-  letter-spacing: 0.32px;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
   color: var(--white-bg-color);
 }
 
-.footer-socials ul {
+.footer-socials-list {
   gap: 16px;
   display: flex;
-  margin-top: 16px;
 }
 
-.footer-socials-item {
+.footer-socials-link {
   padding: 8px;
   display: flex;
-  border-radius: 100%;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
   background-color: var(--primary-color);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.footer-socials-item:hover {
+.footer-socials-link:hover {
   background-color: var(--success-color);
+}
+
+.footer-socials-icon {
+  fill: var(--light-color);
 }
 
 .footer .site-link {
